@@ -1,0 +1,192 @@
+﻿div {
+    font-family: Arial;
+}
+
+/*fjerner scrollbaren helt, mens man stadig kan scrolle*/
+::-webkit-scrollbar {
+    display: none;
+}
+
+.frontpage-boxtext {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.header {
+    background-color: rgb(117, 201, 227);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 225px;
+}
+
+.header-img {
+    display: flex;
+    height: 225px;
+    width: max-content;
+}
+
+.header2 {
+    background-color: transparent;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50px;
+}
+
+.home-link {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.text-box {
+    width: 500px;
+    border: none;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    height: 50px;
+    border-radius: 15px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+.logo-img {
+    height: 175px;
+    width: 175px;
+    margin-left: 50px;
+}
+
+/*position absolute + top & right til at ændre knappens position*/
+.login {
+    background-color: rgb(113, 163, 204);
+    color: white;
+    font-size: 16px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 2px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* flex gør at de udfylder hele baren samtidig med at alle knapper er lige bredde */
+.nav-bar-button {
+    background-color: rgb(113, 163, 204);
+    flex: 1;
+    color:white !important;
+    
+    font-size: 16px;
+    border: none;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    /* events for bestemte klasser kan tildeles med f.eks :hover som styrer hover event. */
+    .nav-bar-button:hover {
+        background-color: rgb(102, 148, 185);
+        color:white;
+    }
+
+<!-- billeder fra g9 >
+p {
+    font-family: Arial;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.frontpage-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;
+}
+
+.frontpage {
+    width: 30%;
+    height: 500px;
+    max-height:500px;
+    flex: 1;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-right: 40px;
+    margin-left: 40px;
+    margin-top: 50px;
+    overflow:hidden;
+}
+
+    .frontpage .board-picture {
+        width: 250px;
+        height: 450px;
+        object-fit: cover;
+        margin-bottom: 12px;
+        margin-inline: 75px;
+    }
+
+.board {
+    width: 400px;
+    height: 600px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    margin: auto;
+    margin-inline: 25px;
+    margin-top: 40px;
+}
+
+
+.board-picture {
+    width: 250px;
+    height: 450px;
+    object-fit: cover;
+    margin-bottom: 12px;
+    margin-inline: 75px;
+}
+
+.type {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 8px;
+    margin-bottom: 4px;
+}
+
+
+.add-to-basket-button {
+    background-color: rgb(24, 119, 242);
+    color: white;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 8px;
+    margin-bottom: 10px;
+}
+
+.information-button {
+    background-color: rgb(104, 136, 179);
+    color: white;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 8px;
+    margin-bottom: 10px;
+}
