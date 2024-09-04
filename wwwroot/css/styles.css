@@ -115,8 +115,6 @@ p {
 
 .frontpage {
     width: 30%;
-    height: 500px;
-    max-height:500px;
     flex: 1;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     display: flex;
@@ -138,14 +136,21 @@ p {
 
 .board {
     width: 400px;
-    height: 600px;
+    height: 620px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     display: inline-block;
     margin: auto;
     margin-inline: 25px;
-    margin-top: 40px;
+    margin-top: 40px;       
 }
 
+.board-container {
+    display: grid;  
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;   
+}
 
 .board-picture {
     width: 250px;
@@ -162,11 +167,24 @@ p {
     margin-bottom: 4px;
 }
 
+.board-name {
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 8px;
+    margin-bottom: 4px;
+}
+
+.information-column {
+    display:grid;
+    grid-template-columns: auto auto;
+
+}
 
 .add-to-basket-button {
     background-color: rgb(24, 119, 242);
     color: white;
     border: none;
+    padding: 10px 20px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 20px;
@@ -175,6 +193,9 @@ p {
     font-size: 16px;
     margin-left: 8px;
     margin-bottom: 10px;
+    height: 40px;
+    width: 100px;
+
 }
 
 .information-button {
