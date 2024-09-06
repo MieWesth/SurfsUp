@@ -1,4 +1,10 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function showInput() {
+    // Hent værdierne fra inputfelterne
+    var fromDate = document.getElementById('fromDate').value;
+    var toDate = document.getElementById('toDate').value;
+    var name = document.getElementById('nameTextBox').value;
+    var email = document.getElementById('emailTextBox').value;
 
-// Write your JavaScript code.
+    // Vis værdierne i en alert
+    alert("Book fra: " + fromDate + "\nBook til: " + toDate + "\nNavn: " + name + "\nEmail: " + email);
+}
