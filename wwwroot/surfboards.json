@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Surfboard A",
+    "image": "surfboard-a.jpg",
+    "length": "A great surfboard for beginners.",
+    "width":,
+    "thickness":,
+    "volume":,
+    "type":,
+    "price": 100,
+    "equipment": 
+
+  },
+  {
+    "id": 2,
+    "name": "Surfboard B",
+    "image": "surfboard-b.jpg",
+    "description": "A perfect board for big waves.",
+    "price": 150
+  }
+ 
+]
