@@ -218,9 +218,6 @@ p {
 }
 .card:hover .image-container .image {
     transform: scale(0.95) 
-    
-    
-    
 }
 
 .text-container {
@@ -237,7 +234,7 @@ p {
     font-weight: normal; /* Gør teksten fed */
     color: inherit; /* Sørg for, at linkfarven arves */
     font-size: 19px;
-    margin-top:-20px;
+    margin-top:-25px;
 }
 
 .hover-info{
