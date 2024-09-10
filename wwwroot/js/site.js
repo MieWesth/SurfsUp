@@ -6,5 +6,5 @@
     var email = document.getElementById('emailTextBox').value;
 
     // Vis værdierne i en alert
-    alert("Book fra: " + fromDate + "\nBook til: " + toDate + "\nNavn: " + name + "\nEmail: " + email);
+    alert("Hej " + name + "\nDu har booket fra: " + fromDate + " til: " + toDate + "\nPå denne email: " + email);
 }
