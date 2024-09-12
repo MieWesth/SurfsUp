@@ -1,7 +1,29 @@
-﻿<div class="board-container">
-    
+﻿@model IEnumerable<SurfsUp.Models.Board>
 
-    <div id="surfboard-list" class="board-container">
-        
+@{
+    ViewData["Title"] = "Surfboard List";
+}
+
+@if (Model != null && Model.Any())
+{
+    <div class="board-container">
+        <ul>
+            @foreach (var board in Model)
+            {
+                <li>
+                    <a class="card">
+                        <div class="image-container">
+                            <img class="image" src="@board.ImagePath" />
+                        </div>
+                        <div class="text-container">
+                            @board.Name
+                        </div>
+                        <div class="text-container-type">
+                            @board.Type
+                        </div>
+                    </a>
+                </li>
+            }
+        </ul>
     </div>
-</div>
+}

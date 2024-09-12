@@ -1,24 +1,27 @@
-﻿namespace SurfsUp.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
+
+namespace SurfsUp.Models
 {
+    [Table("Boards",Schema="SurfsUp")]
     public class Board
     {
+        public int BoardId { get; set; }
         public string Name { get; set; }
         public double Length { get; set; }
         public double Width { get; set; }
         public double Thickness { get; set; }
-
         public double Volume { get; set; }
-
         public string Type { get; set; }
-
         public int Price { get; set; }
-
+        [AllowNull]
         public string Equipment { get; set; }
-
-        public int Id { get; }
-        public string Image { get; }
-
-        public Board(string name, double length, double width, double thickness, double volume, string type, int price, string equipment, int id, string image)
+        public string ImagePath { get; set; }
+        
+        
+        public Board() { }
+        public Board(string name, double length, double width, double thickness, double volume, string type, int price, string equipment, int id, string imagePath)
         {
             Name = name;
             Length = length;
@@ -28,11 +31,9 @@
             Type = type;
             Price = price;
             Equipment = equipment;
-            Id = id;
-            Image = image;
+            BoardId = id;
+            ImagePath = imagePath;
         }
-
-        public override string ToString() => $"Name: {Name}";
 
     }
 }
