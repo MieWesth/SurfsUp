@@ -8,6 +8,12 @@
     // Vis værdierne i en alert
     alert("Hej " + name + "\nDu har booket fra: " + fromDate + " til: " + toDate + "\nPå denne email: " + email);
 }
+
+function showBoard() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+
 // Sample CSV data
 const csvData = `
 The Minilog;6;21;2.75;38.8;Shortboard;565;
@@ -39,7 +45,7 @@ function parseCSV(data) {
             [headers[6]]: values[6],
             [headers[7]]: values[7] || '',
             [headers[8]]: `${index + 1}`, // Generate a unique ID
-            [headers[9]]: `/Images/surfboard-${index + 1}.jpg` // Generate an image path
+            [headers[9]]: `/Images/surfboards/surfboard-${index + 1}.jpg` // Generate an image path
         };
     });
 }
