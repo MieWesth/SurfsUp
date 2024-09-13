@@ -150,6 +150,7 @@ p {
     justify-content: space-between;
     align-items: start;
     gap: 20px;   
+    list-style:none;
 }
 
 .board-picture {
@@ -317,66 +318,95 @@ p {
     margin-bottom: 10px;
 }
 
-/* Board popup*/
-/* Popup container */
-.popup {
+/* CSS for Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Centered */
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%; /* Smaller window */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Align items vertically */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     position: relative;
-    display: inline-block;
+}
+
+.modal-body {
+    display: flex; /* Align image and info side-by-side */
+    gap: 20px;
+}
+
+.modal-image img {
+    width: 250px; /* Image size */
+    height: auto;
+    border-radius: 8px;
+}
+
+.modal-info {
+    flex-grow: 1;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
     cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }
 
-    /* The actual popup (appears on top) */
-    .popup .popuptext {
-        visibility: hidden;
-        width: 160px;
-        background-color: #555;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 8px 0;
-        position: absolute;
-        z-index: 1;
-        bottom: 125%;
-        left: 50%;
-        margin-left: -80px;
+    .close:hover,
+    .close:focus {
+        color: black;
     }
 
-        /* Popup arrow */
-        .popup .popuptext::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #555 transparent transparent transparent;
-        }
-
-    /* Toggle this class when clicking on the popup container (hide and show the popup) */
-    .popup .show {
-        visibility: visible;
-        -webkit-animation: fadeIn 1s;
-        animation: fadeIn 1s
-    }
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+.booking {
+    margin-top: 20px;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
+    .booking label {
+        margin-right: 10px;
     }
 
-    to {
-        opacity: 1;
-    }
+.book-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
+
+    .book-button:hover {
+        background-color: #45a049;
+    }
+
+.board-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+    .board-container ul li {
+        display: inline-block;
+        margin: 10px;
+    }
+
+.image-container img {
+    width: 200px;
+    height: auto;
+}}

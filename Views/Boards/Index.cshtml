@@ -4,14 +4,44 @@
     ViewData["Title"] = "Surfboard List";
 }
 
+<!-- Modal Structure -->
+<div id="boardModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-body">
+            <div class="modal-image">
+                <img id="modalBoardImage" src="" alt="Surfboard Image" />
+            </div>
+            <div class="modal-info">
+                <h2 id="modalBoardName"></h2>
+                <p id="modalBoardType"></p>
+                <p><strong>Length:</strong> <span id="modalBoardLength"></span> ft</p>
+                <p><strong>Width:</strong> <span id="modalBoardWidth"></span> in</p>
+                <p><strong>Thickness:</strong> <span id="modalBoardThickness"></span> in</p>
+                <p><strong>Volume:</strong> <span id="modalBoardVolume"></span> L</p>
+                <p><strong>Price:</strong> $<span id="modalBoardPrice"></span></p>
+
+                <!-- Date inputs for booking -->
+                <div class="booking">
+                    <label for="dateFrom">Date From:</label>
+                    <input type="date" id="dateFrom" />
+                    <label for="dateTo">Date To:</label>
+                    <input type="date" id="dateTo" />
+                    <button class="book-button" onclick="bookBoard()">Book</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 @if (Model != null && Model.Any())
 {
     <div class="board-container">
-        <ul>
+        <ul class="board-container">
             @foreach (var board in Model)
             {
                 <li>
-                    <a class="card">
+                    <a class="card" onclick="openModal('@board.Name', '@board.Type', '@board.Length', '@board.Width', '@board.Thickness', '@board.Volume', '@board.Price', '@board.ImagePath')">
                         <div class="image-container">
                             <img class="image" src="@board.ImagePath" />
                         </div>
@@ -26,4 +56,6 @@
             }
         </ul>
     </div>
+   
+
 }

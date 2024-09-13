@@ -19,6 +19,13 @@ namespace SurfsUp.Controllers
             return View(boards);
         }
 
+        public async Task<IActionResult> BoardModal(int id)
+        {
+            var chosenBoard = await _boardRepository.GetBoardById(id);
+
+            return View(chosenBoard);
+        }
+
         
     }
 }

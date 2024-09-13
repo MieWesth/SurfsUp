@@ -18,10 +18,10 @@ namespace SurfsUp.Models
         [AllowNull]
         public string Equipment { get; set; }
         public string ImagePath { get; set; }
-        
+        public bool IsBooked { get; set; }
         
         public Board() { }
-        public Board(string name, double length, double width, double thickness, double volume, string type, int price, string equipment, int id, string imagePath)
+        public Board(string name, double length, double width, double thickness, double volume, string type, int price, string equipment, int id, string imagePath, bool isBooked)
         {
             Name = name;
             Length = length;
@@ -33,6 +33,7 @@ namespace SurfsUp.Models
             Equipment = equipment;
             BoardId = id;
             ImagePath = imagePath;
+            IsBooked = isBooked;
         }
 
     }

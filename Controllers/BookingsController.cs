@@ -1,12 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SurfsUp.Models;
 
 namespace SurfsUp.Controllers
 {
     public class BookingsController : Controller
     {
-        public IActionResult Index(int? boardId)
+        private readonly IBoardRepository _boardRepository;
+
+        public BookingsController(IBoardRepository boardRepository)
         {
-            return View();
+            _boardRepository = boardRepository;
+        }
+
+        public async Task<IActionResult> Index(int id)
+        {
+            var chosenBoard = await _boardRepository.GetBoardById(id);
+            chosenBoard.IsBooked = true;
+            _boardRepository.AddBooking(chosenBoard);
+
+            return View(chosenBoard);
         }
     }
 }
