@@ -7,35 +7,39 @@
 
 <!-- Modal -->
 <div id="boardModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div class="modal-body">
-            <div class="left">
-                <img id="modalImage" src="" alt="Board Image" />
-            </div>
-            <div class="right">
-                <h2 id="modalBoardName"></h2>
-                <p><strong>Type:</strong> <span id="modalType"></span></p>
-                <p><strong>Dimensioner(Bredde x Længde x Højde):</strong> <span id="modalDimensions"></span></p>
-                <p><strong>Volume:</strong> <span id="modalVolume"></span> Liters</p>
-                <p><strong>Pris:</strong> €<span id="modalPrice"></span> eller €<span id="modalRentPrice"></span> pr. dag</p>
-                <p><strong>Udstyr:</strong> <span id="modalEquipment"></span></p>
+    <form method="post" action="/Cart/Index">
+        <input type="hidden" id="modal-board-id" name="boardId" />
+       
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <div class="left">
+                    <img id="modalImage" src="" alt="Board Image" />
+                </div>
+                <div class="right">
+                    <h2 id="modalBoardName"></h2>
+                    <p><strong>Type:</strong> <span id="modalType"></span></p>
+                    <p><strong>Dimensioner(Bredde x Længde x Højde):</strong> <span id="modalDimensions"></span></p>
+                    <p><strong>Volume:</strong> <span id="modalVolume"></span> Liters</p>
+                    <p><strong>Pris:</strong> €<span id="modalPrice"></span> eller €<span id="modalRentPrice"></span> pr. dag</p>
+                    <p><strong>Udstyr:</strong> <span id="modalEquipment"></span></p>
 
-                <!-- Date Pickers -->
-                <div class="date-picker">
+
+
                     <label for="dateFrom">Fra:</label>
                     <input type="date" id="dateFrom" name="dateFrom" required />
-                </div>
-                <div class="date-picker">
+
                     <label for="dateTo">Til:</label>
                     <input type="date" id="dateTo" name="dateTo" required />
-                </div>
 
-                <!-- Book Button -->
-                <button class="book-btn" onclick="bookBoard()">Book</button>
+
+                    <!-- Book Button -->
+                    <button class="book-btn" onclick="bookBoard()">Book</button>
+
+                </div>
             </div>
-        </div>
-    </div>
+    </form>
+</div>
 </div>
 
 @if (Model != null && Model.Any())

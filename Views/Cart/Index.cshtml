@@ -1,0 +1,30 @@
+﻿@model IEnumerable<SurfsUp.Models.Booking>
+
+@{
+    ViewData["Title"] = "Your Bookings";
+}
+
+<h2>Your Cart</h2>
+
+@if (Model != null && Model.Any())
+{
+    <ul>
+        @foreach (var booking in Model)
+        {
+            <li>
+                <img src="@booking.Board.ImagePath" alt="@booking.Board.Name" style="width:100px;height:auto;" />
+                <strong>@booking.Board.Name</strong> <br />
+                Type: @booking.Board.Type <br />
+                Dimensions: @booking.Board.Length x @booking.Board.Width x @booking.Board.Thickness <br />
+                Volume: @booking.Board.Volume liters <br />
+                Price: $@booking.Board.Price <br />
+                Booked From: @booking.DateFrom.ToString("dd-MM-yyyy") <br />
+                Booked To: @booking.DateTo.ToString("dd-MM-yyyy") <br />
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>Your cart is empty.</p>
+}

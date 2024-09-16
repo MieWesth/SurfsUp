@@ -1,5 +1,8 @@
-﻿namespace SurfsUp.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace SurfsUp.Models
 {
+    [Table("Users", Schema = "SurfsUp")]
     public class User
     {
         public int Id { get; set; }

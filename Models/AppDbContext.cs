@@ -5,7 +5,7 @@ namespace SurfsUp.Models
     public class AppDbContext : DbContext
     {
         public DbSet<Board> Boards { get; set; }
-        public DbSet<Board> BookedBoards { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
         public DbSet<User> Users { get; set; }
 
 

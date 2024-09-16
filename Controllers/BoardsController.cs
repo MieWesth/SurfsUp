@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SurfsUp.Models;
 
 namespace SurfsUp.Controllers
@@ -6,6 +7,7 @@ namespace SurfsUp.Controllers
     public class BoardsController : Controller
     {
         private readonly IBoardRepository _boardRepository;
+        private readonly AppDbContext _context;
 
         public BoardsController(IBoardRepository boardRepository)
         {
@@ -19,13 +21,50 @@ namespace SurfsUp.Controllers
             return View(boards);
         }
 
-        //public async Task<IActionResult> BoardModal(int id)
-        //{
-        //    var chosenBoard = await _boardRepository.GetBoardById(id);
+        //KEVIN
 
-        //    return View(chosenBoard);
-        //}
+        // Handle booking submission
+        [HttpPost]
+        public async Task<IActionResult> Book(int boardId, DateTime dateFrom, DateTime dateTo)
+        {
+            var board = await _boardRepository.GetBoardById(boardId);
+            if (board == null)
+                return NotFound();
 
-        
+            var booking = new Booking
+            {
+                BoardId = boardId,
+                DateFrom = dateFrom,
+                Board = board,
+                DateTo = dateTo,
+                IsConfirmed = false // By default, not confirmed
+            };
+
+            _context.Bookings.Add(booking);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Cart");
+        }
+
+        // Display the cart (list of bookings)
+        public async Task<IActionResult> Cart()
+        {
+            var bookings = await _context.Bookings.Include(b => b.Board).ToListAsync();
+            return View(bookings);
+        }
+
+        // Optional: To remove a booking from the cart
+        public async Task<IActionResult> RemoveBooking(int bookingId)
+        {
+            var booking = await _context.Bookings.FindAsync(bookingId);
+            if (booking == null)
+                return NotFound();
+
+            _context.Bookings.Remove(booking);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Cart");
+        }
     }
+
 }
+

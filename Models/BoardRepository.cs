@@ -1,8 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
 namespace SurfsUp.Models
-
 {
+    public interface IBoardRepository
+    {
+        Task<IEnumerable<Board>> GetAllBoards();
+        Task<Board> GetBoardById(int id);
+        Task Add(Board board);
+        Task Update(Board board);
+        Task Delete(Board board);
+    }
+
     public class BoardRepository : IBoardRepository
     {
         private readonly AppDbContext _context;
@@ -38,33 +46,6 @@ namespace SurfsUp.Models
             await _context.SaveChangesAsync();
         }
 
-        ////BookedBoards
-        //public async Task<IEnumerable<Board>> GetAllBookedBoards()
-        //{
-        //    return await _context.BookedBoards.ToListAsync();
-        //}
-        //public async Task<Board> GetBookedBoardById(int id)
-        //{
-        //    return await _context.BookedBoards.FindAsync(id);
-        //}
-
-        //public async Task AddBooking(Board bookedBoard)
-        //{
-        //    await _context.BookedBoards.AddAsync(bookedBoard);
-        //    await _context.SaveChangesAsync();
-        //}
-
-        //public async Task UpdateBooking(Board bookedBoard)
-        //{
-        //    _context.BookedBoards.Update(bookedBoard);
-        //    await _context.SaveChangesAsync();
-        //}
-
-        //public async Task DeleteBooking(Board bookedBoard)
-        //{
-        //    _context.Remove(bookedBoard);
-        //    await _context.SaveChangesAsync();
-        //}
     }
 }
 

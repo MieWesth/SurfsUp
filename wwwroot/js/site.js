@@ -1,5 +1,5 @@
 ﻿// Function to open the modal and populate it with board data
-function openModal(name, type, length, width, thickness, volume, price, equipment, imagePath) {
+function openModal(name, type, length, width, thickness, volume, price, equipment, imagePath, boardId) {
     rentPrice = Math.round(price / 30);
     document.getElementById('modalBoardName').textContent = name;
     document.getElementById('modalType').textContent = type;
@@ -7,10 +7,11 @@ function openModal(name, type, length, width, thickness, volume, price, equipmen
     document.getElementById('modalVolume').textContent = volume;
     document.getElementById('modalPrice').textContent = price;
     document.getElementById('modalRentPrice').textContent = rentPrice;
+    document.getElementById("modal-board-id").value = boardId;
 
 
     // Display "None" if equipment is null or empty
-    document.getElementById('modalEquipment').textContent = equipment ? equipment : 'None';
+    document.getElementById('modalEquipment').textContent = equipment ? equipment : 'Intet';
     document.getElementById('modalImage').src = imagePath;
 
     document.getElementById('boardModal').style.display = 'block';
