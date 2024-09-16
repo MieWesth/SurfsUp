@@ -1,48 +1,52 @@
-﻿function showInput() {
-    // Hent værdierne fra inputfelterne
-    var fromDate = document.getElementById('fromDate').value;
-    var toDate = document.getElementById('toDate').value;
-    var name = document.getElementById('nameTextBox').value;
-    var email = document.getElementById('emailTextBox').value;
-
-    // Vis værdierne i en alert
-    alert("Hej " + name + "\nDu har booket fra: " + fromDate + " til: " + toDate + "\nPå denne email: " + email);
-}
-
-//Modal Box <------------------->
-function openModal(name, type, length, width, thickness, volume, price, imagePath) {
+﻿// Function to open the modal and populate it with board data
+function openModal(name, type, length, width, thickness, volume, price, equipment, imagePath) {
+    rentPrice = Math.round(price / 30);
     document.getElementById('modalBoardName').textContent = name;
-    document.getElementById('modalBoardType').textContent = type;
-    document.getElementById('modalBoardLength').textContent = length;
-    document.getElementById('modalBoardWidth').textContent = width;
-    document.getElementById('modalBoardThickness').textContent = thickness;
-    document.getElementById('modalBoardVolume').textContent = volume;
-    document.getElementById('modalBoardPrice').textContent = price;
-    document.getElementById('modalBoardImage').src = imagePath;
+    document.getElementById('modalType').textContent = type;
+    document.getElementById('modalDimensions').textContent = `${length} x ${width} x ${thickness}`;
+    document.getElementById('modalVolume').textContent = volume;
+    document.getElementById('modalPrice').textContent = price;
+    document.getElementById('modalRentPrice').textContent = rentPrice;
 
-    // Show the modal
+
+    // Display "None" if equipment is null or empty
+    document.getElementById('modalEquipment').textContent = equipment ? equipment : 'None';
+    document.getElementById('modalImage').src = imagePath;
+
     document.getElementById('boardModal').style.display = 'block';
 }
 
+// Function to close the modal
 function closeModal() {
     document.getElementById('boardModal').style.display = 'none';
 }
 
+// Function to handle board booking (you can expand this to save booking in the database)
 function bookBoard() {
     const dateFrom = document.getElementById('dateFrom').value;
     const dateTo = document.getElementById('dateTo').value;
 
-    if (dateFrom && dateTo) {
-        alert('Board booked from ' + dateFrom + ' to ' + dateTo + '!');
-        closeModal();
-    } else {
-        alert('Please select both dates.');
+    if (!dateFrom || !dateTo) {
+        alert('Vælg venligst begge datoer.');
+        return;
     }
+
+    alert(`Surfboard booket fra ${dateFrom} til ${dateTo}`);
+    closeModal();
 }
 
-// Close the modal when clicking outside of it
-window.onclick = function (event) {
-    if (event.target == document.getElementById('boardModal')) {
-        closeModal();
-    }
-}}
+function login() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    if (!email && !password) {
+        alert('Indtast venligst email og kodeord.');
+        return;
+    } else if (email && !password) {
+        alert('Indtast venligst kodeord.');
+        return;
+    } else if (!email && password) {
+        alert('Indtast venligst email.');
+        return;
+    } 
+}
