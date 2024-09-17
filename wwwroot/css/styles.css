@@ -68,6 +68,15 @@
         background-color: rgb(102, 148, 185);
     }
 
+.Cart-button {
+    background-color: rgb(113, 163, 204);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 200px;
+}
+
 .header2 {
     background-color: transparent;
     color: white;
