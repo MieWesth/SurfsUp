@@ -7,24 +7,22 @@
 
 <!-- Modal -->
 <div id="boardModal" class="modal">
-    <form method="post" action="/Cart/Index">
-        <input type="hidden" id="modal-board-id" name="boardId" />
-       
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div class="modal-body">
-                <div class="left">
-                    <img id="modalImage" src="" alt="Board Image" />
-                </div>
-                <div class="right">
-                    <h2 id="modalBoardName"></h2>
-                    <p><strong>Type:</strong> <span id="modalType"></span></p>
-                    <p><strong>Dimensioner(Bredde x Længde x Højde):</strong> <span id="modalDimensions"></span></p>
-                    <p><strong>Volume:</strong> <span id="modalVolume"></span> Liters</p>
-                    <p><strong>Pris:</strong> €<span id="modalPrice"></span> eller €<span id="modalRentPrice"></span> pr. dag</p>
-                    <p><strong>Udstyr:</strong> <span id="modalEquipment"></span></p>
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-body">
+            <div class="left">
+                <img id="modalImage" src="" alt="Board Image" />
+            </div>
+            <div class="right">
+                <h2 id="modalBoardName"></h2>
+                <p><strong>Type:</strong> <span id="modalType"></span></p>
+                <p><strong>Dimensioner(Bredde x Længde x Højde):</strong> <span id="modalDimensions"></span></p>
+                <p><strong>Volume:</strong> <span id="modalVolume"></span> Liters</p>
+                <p><strong>Pris:</strong> €<span id="modalPrice"></span> eller €<span id="modalRentPrice"></span> pr. dag</p>
+                <p><strong>Udstyr:</strong> <span id="modalEquipment"></span></p>
 
-
+                <form method="post" action="/Boards/Book">
+                    <input type="hidden" id="modal-board-id" name="boardId" />
 
                     <label for="dateFrom">Fra:</label>
                     <input type="date" id="dateFrom" name="dateFrom" required />
@@ -32,14 +30,13 @@
                     <label for="dateTo">Til:</label>
                     <input type="date" id="dateTo" name="dateTo" required />
 
-
                     <!-- Book Button -->
-                    <button class="book-btn" onclick="bookBoard()">Book</button>
-
-                </div>
+                    <button class="book-btn" type="submit" onclick="bookBoard()">Book</button>
+                </form>
             </div>
-    </form>
-</div>
+        </div>
+    </div>
+
 </div>
 
 @if (Model != null && Model.Any())
@@ -49,7 +46,7 @@
             @foreach (var board in Model)
             {
                 <li style="list-style-type:none;">
-                    <a class="card" onclick="openModal('@board.Name', '@board.Type', '@board.Length', '@board.Width', '@board.Thickness', '@board.Volume', '@board.Price', '@board.Equipment', '@board.ImagePath')">
+                    <a class="card" onclick="openModal('@board.Name', '@board.Type', '@board.Length', '@board.Width', '@board.Thickness', '@board.Volume', '@board.Price', '@board.Equipment', '@board.ImagePath', '@board.BoardId')">
                         <div class="image-container">
                             <img class="image" src="@board.ImagePath" />
                         </div>

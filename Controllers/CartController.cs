@@ -16,10 +16,6 @@ namespace SurfsUp.Controllers
 
         public async Task<IActionResult> Index()
         {
-            // Assuming you have a way to identify the current user (e.g., User.Identity.Name or session)
-            var userId = User.Identity.Name;
-
-            // Fetch bookings for the current user
             var bookings = await _bookingRepository.GetAllBookings();
 
             return View(bookings);

@@ -1,6 +1,7 @@
 ﻿// Function to open the modal and populate it with board data
 function openModal(name, type, length, width, thickness, volume, price, equipment, imagePath, boardId) {
     rentPrice = Math.round(price / 30);
+
     document.getElementById('modalBoardName').textContent = name;
     document.getElementById('modalType').textContent = type;
     document.getElementById('modalDimensions').textContent = `${length} x ${width} x ${thickness}`;

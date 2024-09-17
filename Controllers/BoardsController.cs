@@ -9,9 +9,10 @@ namespace SurfsUp.Controllers
         private readonly IBoardRepository _boardRepository;
         private readonly AppDbContext _context;
 
-        public BoardsController(IBoardRepository boardRepository)
+        public BoardsController(IBoardRepository boardRepository, AppDbContext context)
         {
             _boardRepository = boardRepository;
+            _context = context;
         }
 
         public async Task<IActionResult> Index()
@@ -35,15 +36,15 @@ namespace SurfsUp.Controllers
             {
                 BoardId = boardId,
                 DateFrom = dateFrom,
-                Board = board,
                 DateTo = dateTo,
+                Board = board,
                 IsConfirmed = false // By default, not confirmed
             };
 
             _context.Bookings.Add(booking);
             await _context.SaveChangesAsync();
 
-            return RedirectToAction("Cart");
+            return RedirectToAction("Index");
         }
 
         // Display the cart (list of bookings)
@@ -65,6 +66,5 @@ namespace SurfsUp.Controllers
             return RedirectToAction("Cart");
         }
     }
-
 }
 

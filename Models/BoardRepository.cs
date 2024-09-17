@@ -23,6 +23,7 @@ namespace SurfsUp.Models
         {
             return await _context.Boards.ToListAsync();
         }
+
         public async Task<Board> GetBoardById(int id)
         {
             return await _context.Boards.FindAsync(id);
