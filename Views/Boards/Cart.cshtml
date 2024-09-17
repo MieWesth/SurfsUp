@@ -4,20 +4,20 @@
     ViewData["Title"] = "Your Bookings";
 }
 
-<h2>Your Cart</h2>
+<h2>Din Kurv</h2>
 
 @if (Model != null && Model.Any())
 {
     <ul>
         @foreach (var booking in Model)
         {
-            <li>
+            <li style="list-style-type:none;">
                 <img src="@booking.Board.ImagePath" alt="@booking.Board.Name" style="width:100px;height:auto;" />
                 <strong>@booking.Board.Name</strong> <br />
                 Type: @booking.Board.Type <br />
-                Price: $@booking.Board.Price <br />
-                Booked From: @booking.DateFrom.ToString("dd-MM-yyyy") <br />
-                Booked To: @booking.DateTo.ToString("dd-MM-yyyy") <br />
+                Pris: €@booking.Board.Price <br />
+                Booket fra: @booking.DateFrom.ToString("dd-MM-yyyy") <br />
+                Booket til: @booking.DateTo.ToString("dd-MM-yyyy") <br />
             </li>
         }
     </ul>

@@ -7,11 +7,13 @@ namespace SurfsUp.Controllers
     public class BoardsController : Controller
     {
         private readonly IBoardRepository _boardRepository;
+        private readonly IBookingRepository _bookingRepository;
         private readonly AppDbContext _context;
 
-        public BoardsController(IBoardRepository boardRepository, AppDbContext context)
+        public BoardsController(IBoardRepository boardRepository, IBookingRepository bookingRepository, AppDbContext context)
         {
             _boardRepository = boardRepository;
+            _bookingRepository = bookingRepository;
             _context = context;
         }
 
@@ -50,7 +52,8 @@ namespace SurfsUp.Controllers
         // Display the cart (list of bookings)
         public async Task<IActionResult> Cart()
         {
-            var bookings = await _context.Bookings.Include(b => b.Board).ToListAsync();
+            var bookings = await _bookingRepository.GetAllBookings();
+
             return View(bookings);
         }
 

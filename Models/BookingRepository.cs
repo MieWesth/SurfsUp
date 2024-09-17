@@ -28,7 +28,7 @@ namespace SurfsUp.Models
 
         public async Task<IEnumerable<Booking>> GetAllBookings()
         {
-            return await _context.Bookings.ToListAsync();
+            return await _context.Bookings.Include(b => b.Board).ToListAsync();
         }
 
         public async Task AddBooking(Booking booking)
