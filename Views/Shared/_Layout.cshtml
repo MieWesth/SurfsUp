@@ -20,14 +20,11 @@
         <div class="search-container">
             <input class="text-box" placeholder="Search">
         </div>
-
+        
         <div class="header-right">
-            <!-- Login -->
-            <div class="login-form">
-                <input id="email" type="email" placeholder="Email" class="login-input">
-                <input id="password" type="password" placeholder="Kodeord" class="login-input">
-                <button class="login-button" onclick="login()">Login/Signup</button>
-            </div>
+            <partial name="_LoginPartial" />
+
+           
         </div>
 
     </div>
@@ -45,6 +42,7 @@
 
         <a href="/Boards/Cart" class="nav-bar-button">Kurv</a>
     </div>
+    
     <div>
         <main role="main" class="pb-3">
             @RenderBody()
@@ -56,6 +54,6 @@
             &copy; 2024 - SurfsUp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
