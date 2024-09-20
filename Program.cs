@@ -9,6 +9,14 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+/*
+ Services - Dependency injection container
+Transient - laver nyt objekt hver gang man støder på klassen.
+Scoped - laver nye objekter for hver webapplikation?
+Singleton - 
+ */
+
+
 builder.Services.AddScoped<IBoardRepository, BoardRepository>();
 
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
