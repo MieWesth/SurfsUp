@@ -20,5 +20,7 @@ namespace SurfsUp.Models
         public DateTime DateTo { get; set; }
 
         public bool IsConfirmed { get; set; }
+        [Required]
+        public string UserId { get; set; }
     }
 }

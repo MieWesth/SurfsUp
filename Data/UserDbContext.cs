@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SurfsUp.Models;
+using System.Data.Common;
 
 namespace SurfsUp.Data
 {
@@ -11,5 +12,6 @@ namespace SurfsUp.Data
         {
 
         }
+        
     }
 }

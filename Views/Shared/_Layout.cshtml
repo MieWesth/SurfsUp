@@ -22,7 +22,10 @@
         </div>
 
         <div class="header-right">
+            <div class="nav-bar-collapse collapse d-sm-inline-flex justify-content-between">
+
             <partial name="_LoginPartial" />
+            </div>
 
 
         </div>
@@ -53,6 +56,10 @@
             &copy; 2024 - SurfsUp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
