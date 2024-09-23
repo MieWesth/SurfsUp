@@ -26,7 +26,7 @@ namespace SurfsUp.Controllers
         public async Task<IActionResult> Index()
         {
             var boards = await _boardRepository.GetAllBoards();
-            
+
             return View(boards);
         }
 
@@ -37,26 +37,55 @@ namespace SurfsUp.Controllers
         public async Task<IActionResult> Book(int boardId, DateTime dateFrom, DateTime dateTo)
         {
             var board = await _boardRepository.GetBoardById(boardId);
+
+            if (board == null)
+            {
+                ViewBag.ErrorMessage = "Surfboard eksisterer ikke.";
+                return View("Index");
+            }
+
             var user = await _userManager.GetUserAsync(User);
             var userId = user.Id;
-            if (board == null)
-                return NotFound();
+            var name = user.Name;
+            var email = user.Email;
 
-            var booking = new Booking
+            var conflictingBooking = _context.Bookings.Any(b => b.BoardId == boardId
+                              && b.DateFrom < dateTo
+                              && b.DateTo > dateFrom);
+
+            if (conflictingBooking)
             {
-                BoardId = boardId,
-                DateFrom = dateFrom,
-                DateTo = dateTo,
-                Board = board,
-                IsConfirmed = false, // By default, not confirmed
-                UserId = userId
-            };
+                ViewBag.ErrorMessage = "Surfboard er allerede booket, i de valgte dage.";
+                return View("Index");
+            }
 
-            _context.Bookings.Add(booking);
-            await _context.SaveChangesAsync();
+            try
+            {
+                var booking = new Booking
+                {
+                    BoardId = boardId,
+                    DateFrom = dateFrom,
+                    DateTo = dateTo,
+                    Board = board,
+                    IsConfirmed = false, // By default, not confirmed
+                    UserId = userId,
+                    Name = name,
+                    Email = email
+                };
+                _context.Bookings.Add(booking);
+                await _context.SaveChangesAsync();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+
+                ViewBag.ErrorMessage = "Surfboard er allerede booket, i de valgte dage.";
+                return View("Index");
+            }
         }
+
 
         // Display the cart (list of bookings)
         public async Task<IActionResult> Cart()

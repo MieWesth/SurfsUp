@@ -52,6 +52,7 @@ namespace SurfsUp.Controllers
                     Address = model.Address,
 
                 };
+                
 
                 var result = await userManager.CreateAsync(user,model.Password!);
 
