@@ -1,13 +1,30 @@
 using SurfsUp.Models;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
+using SurfsUp.Data;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var userConnectionString = builder.Configuration.GetConnectionString("UserConnection");
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<UserDbContext>(options => options.UseSqlServer(userConnectionString));
+
+builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
+{
+    options.Password.RequiredUniqueChars = 0;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 8;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireLowercase = false;
+})
+    .AddEntityFrameworkStores<UserDbContext>().AddDefaultTokenProviders();
 
 /*
  Services - Dependency injection container
