@@ -15,7 +15,7 @@ namespace SurfsUp.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
             return View();
         }

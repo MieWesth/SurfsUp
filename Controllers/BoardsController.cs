@@ -104,7 +104,7 @@ namespace SurfsUp.Controllers
             return View(bookings);
         }
 
-
+        [HttpDelete]
         // Optional: To remove a booking from the cart
         public async Task<IActionResult> RemoveBooking(int bookingId)
         {
