@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SurfsUp.Models
 {
@@ -8,11 +9,13 @@ namespace SurfsUp.Models
     {
         public int BookingId { get; set; }
 
-        [Required]
+        [AllowNull]
         public int BoardId { get; set; }
 
         public Board Board { get; set; } // Navigation property to link to the Board
-
+        [AllowNull]
+        public int WetsuitId { get; set; }
+        public Wetsuit Wetsuit { get; set; }
         [Required]
         public DateTime DateFrom { get; set; }
 
