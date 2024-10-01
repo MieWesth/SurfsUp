@@ -1,0 +1,73 @@
+﻿@model IEnumerable<SurfsUp.Models.Wetsuit>
+
+@{
+    ViewData["Title"] = "Wetsuit List";
+}
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<!-- Modal -->
+<div id="boardModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-body">
+            <div class="left">
+                <img id="modalImage" src="" alt="Board Image" />
+            </div>
+            <div class="right">
+                <h2 id="modalWetsuitName"></h2>
+                <p><strong>Gender:</strong> <span id="modalGender"></span></p>
+                <p><strong>Size:</strong> <span id="modalSize"></span></p>
+                <p><strong>Thickness:</strong> <span id="modalThickness"></span> mm</p>
+                <p><strong>Pris:</strong> €<span id="modalPrice"></span> eller €<span id="modalRentPrice"></span> pr. dag</p>
+                
+
+                <form method="post" action="/Wetsuits/Book">
+                    <input type="hidden" id="modal-wetsuit-id" name="wetsuitId" />
+                    <input type="hidden" id="modal-user-id" name="userId" />
+
+                    <label for="pickSize">Størrelse:</label>
+                    <input type="text" id="pickSize" name="pickSize" required />
+
+                    <label for="dateFrom">Fra:</label>
+                    <input type="date" id="dateFrom" name="dateFrom" required />
+
+                    <label for="dateTo">Til:</label>
+                    <input type="date" id="dateTo" name="dateTo" required />
+
+                    <!-- Book Button -->
+                    <button class="book-btn" type="submit" onclick="bookBoard()">Book</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@if (Model != null && Model.Any())
+{
+    <div>
+        <ul class="board-container">
+            @foreach (var wetsuit in Model)
+            {
+                <li style="list-style-type:none;">
+                    <a class="card" onclick="openWetsuitModal('@wetsuit.Name', '@wetsuit.Gender', '@wetsuit.WetsuitSize', '@wetsuit.Thickness', '@wetsuit.Price', '@wetsuit.ImagePath', '@wetsuit.WetsuitId')">
+                        <div class="image-container">
+                            <img class="image" src="@wetsuit.ImagePath" />
+                        </div>
+                        <div class="text-container">
+                            @wetsuit.Name
+                        </div>
+                        <div class="text-container-type">
+                            @wetsuit.
+                        </div>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+}

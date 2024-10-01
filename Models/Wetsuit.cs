@@ -18,7 +18,7 @@ namespace SurfsUp.Models
         public int WetsuitId { get; set; }
         [Required]
         //[Wetsuit_EnsureCorrectSizing]
-        public WetsuitSize? Size { get; set; }
+        public WetsuitSize? WetsuitSize { get; set; }
         [Required]
         public double Price { get; set; }
         [Required]
@@ -35,9 +35,9 @@ namespace SurfsUp.Models
         
         }
 
-        public Wetsuit(WetsuitSize size, double price, string name, string gender, string imagePath, double thickness) 
+        public Wetsuit(WetsuitSize wetsuitSize, double price, string name, string gender, string imagePath, double thickness) 
         {
-            Size = size;
+            WetsuitSize = wetsuitSize;
             Price = price;
             Name = name;
             Gender = gender;

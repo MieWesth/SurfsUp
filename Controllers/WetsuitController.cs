@@ -31,7 +31,7 @@ namespace SurfsUp.Controllers
 
         // Handle booking submission
         [HttpPost]
-        public async Task<IActionResult> Book(int wetsuitId, DateTime dateFrom, DateTime dateTo)
+        public async Task<IActionResult> Book(int wetsuitId, WetsuitSize pickSize, DateTime dateFrom, DateTime dateTo)
         {
             var wetsuit = await _wetsuitRepository.GetWetsuitById(wetsuitId);
 
@@ -67,7 +67,8 @@ namespace SurfsUp.Controllers
                     IsConfirmed = false, // By default, not confirmed
                     UserId = userId,
                     Name = name,
-                    Email = email
+                    Email = email,
+                    WetsuitSize = pickSize
                 };
                 _context.Bookings.Add(booking);
                 await _context.SaveChangesAsync();

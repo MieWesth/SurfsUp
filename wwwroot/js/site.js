@@ -19,6 +19,23 @@ function openModal(name, type, length, width, thickness, volume, price, equipmen
     document.getElementById('boardModal').style.display = 'block';
 }
 
+function openWetsuitModal(name, gender, size, thickness, price, imagePath, wetsuitId, userId,) {
+    rentPrice = Math.round(price / 30);
+
+    document.getElementById('modalWetsuitName').textContent = name;
+    document.getElementById('modalGender').textContent = gender;
+    document.getElementById('modalSize').textContent = size;
+    document.getElementById('modalThickness').textContent = thickness;
+    document.getElementById('modalPrice').textContent = price;
+    document.getElementById('modalRentPrice').textContent = rentPrice;
+    document.getElementById("modal-Wetsuit-id").value = wetsuitId;
+    document.getElementById("modal-user-id").value = userId;
+
+
+    document.getElementById('modalImage').src = imagePath;
+    document.getElementById('wetsuitModal').style.display = 'block';
+}
+
 // Function to close the modal
 function closeModal() {
     document.getElementById('boardModal').style.display = 'none';
