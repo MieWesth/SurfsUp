@@ -10,17 +10,17 @@ namespace SurfsUp.Models
         public int BookingId { get; set; }
 
         [AllowNull]
-        public int BoardId { get; set; }
+        public int? BoardId { get; set; }
 
         [AllowNull]
-        public Board Board { get; set; } // Navigation property to link to the Board
+        public Board? Board { get; set; } // Navigation property to link to the Board
         [AllowNull]
         [ForeignKey(nameof(Wetsuit))]
-        public int WetsuitId { get; set; }
+        public int? WetsuitId { get; set; }
         [AllowNull]
         public WetsuitSize? WetsuitSize { get; set; }
         [AllowNull]
-        public Wetsuit Wetsuit { get; set; }
+        public Wetsuit? Wetsuit { get; set; }
         [Required]
         public DateTime DateFrom { get; set; }
         [Required]

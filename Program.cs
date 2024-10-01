@@ -38,6 +38,8 @@ builder.Services.AddScoped<IBoardRepository, BoardRepository>();
 
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 
+builder.Services.AddScoped<IWetsuitRepository, WetsuitRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

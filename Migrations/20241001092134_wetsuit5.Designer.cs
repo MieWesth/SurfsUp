@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SurfsUp.Models;
 
@@ -11,9 +12,11 @@ using SurfsUp.Models;
 namespace SurfsUp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241001092134_wetsuit5")]
+    partial class wetsuit5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -323,58 +326,48 @@ namespace SurfsUp.Migrations
                             Gender = "Male",
                             ImagePath = "/images/wetsuits/wetsuit-1.jpg",
                             Name = "Furnace Natural",
-                            Price = 275.0,
+                            Price = 565.0,
                             Thickness = 2.0,
                             WetsuitSize = 0
                         },
                         new
                         {
                             WetsuitId = 2,
-                            Gender = "Male",
-                            ImagePath = "/images/wetsuits/wetsuit-2.jpg",
-                            Name = "Revolution",
-                            Price = 290.0,
-                            Thickness = 2.0,
+                            Gender = "",
+                            ImagePath = "/images/wetsuits/wetsuit-1.jpg",
+                            Name = "",
+                            Price = 565.0,
+                            Thickness = 2.75,
                             WetsuitSize = 0
                         },
                         new
                         {
                             WetsuitId = 3,
-                            Gender = "Male",
-                            ImagePath = "/images/wetsuits/wetsuit-3.jpg",
-                            Name = "Foil",
-                            Price = 265.0,
-                            Thickness = 3.0,
+                            Gender = "",
+                            ImagePath = "/images/wetsuits/wetsuit-1.jpg",
+                            Name = "",
+                            Price = 565.0,
+                            Thickness = 2.75,
                             WetsuitSize = 0
                         },
                         new
                         {
                             WetsuitId = 4,
-                            Gender = "Male",
-                            ImagePath = "/images/wetsuits/wetsuit-4.jpg",
-                            Name = "Revolution Natural",
-                            Price = 270.0,
-                            Thickness = 3.0,
+                            Gender = "",
+                            ImagePath = "/images/wetsuits/wetsuit-1.jpg",
+                            Name = "",
+                            Price = 565.0,
+                            Thickness = 2.75,
                             WetsuitSize = 0
                         },
                         new
                         {
                             WetsuitId = 5,
-                            Gender = "Male",
-                            ImagePath = "/images/wetsuits/wetsuit-5.jpg",
-                            Name = "Foil Natural",
-                            Price = 285.0,
-                            Thickness = 5.0,
-                            WetsuitSize = 0
-                        },
-                        new
-                        {
-                            WetsuitId = 6,
-                            Gender = "Male",
-                            ImagePath = "/images/wetsuits/wetsuit-6.jpg",
-                            Name = "Furnace",
-                            Price = 285.0,
-                            Thickness = 5.0,
+                            Gender = "",
+                            ImagePath = "/images/wetsuits/wetsuit-1.jpg",
+                            Name = "",
+                            Price = 565.0,
+                            Thickness = 2.75,
                             WetsuitSize = 0
                         });
                 });

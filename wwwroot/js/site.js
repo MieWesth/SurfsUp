@@ -18,6 +18,9 @@ function openModal(name, type, length, width, thickness, volume, price, equipmen
 
     document.getElementById('boardModal').style.display = 'block';
 }
+function closeModal() {
+    document.getElementById('boardModal').style.display = 'none';
+}
 
 function openWetsuitModal(name, gender, size, thickness, price, imagePath, wetsuitId, userId,) {
     rentPrice = Math.round(price / 30);
@@ -28,19 +31,16 @@ function openWetsuitModal(name, gender, size, thickness, price, imagePath, wetsu
     document.getElementById('modalThickness').textContent = thickness;
     document.getElementById('modalPrice').textContent = price;
     document.getElementById('modalRentPrice').textContent = rentPrice;
-    document.getElementById("modal-Wetsuit-id").value = wetsuitId;
+    document.getElementById("modal-wetsuit-id").value = wetsuitId;
     document.getElementById("modal-user-id").value = userId;
 
 
     document.getElementById('modalImage').src = imagePath;
     document.getElementById('wetsuitModal').style.display = 'block';
 }
-
-// Function to close the modal
-function closeModal() {
-    document.getElementById('boardModal').style.display = 'none';
+function closeWetsuitModal() {
+    document.getElementById('wetsuitModal').style.display = 'none';
 }
-
 // Function to handle board booking (you can expand this to save booking in the database)
 function bookBoard() {
     const dateFrom = document.getElementById('dateFrom').value;

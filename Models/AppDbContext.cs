@@ -157,49 +157,60 @@ namespace SurfsUp.Models
                     Gender = "Male",
                     WetsuitSize = 0,
                     Thickness = 2,
-                    Price = 565,
+                    Price = 275,
                     ImagePath = "/images/wetsuits/wetsuit-1.jpg"
                 },
                 new Wetsuit
                 {
                     WetsuitId = 2,
-                    Name = "",
-                    Gender = "",
+                    Name = "Revolution",
+                    Gender = "Male",
                     WetsuitSize = 0,
-                    Thickness = 2.75,
-                    Price = 565,
-                    ImagePath = "/images/wetsuits/wetsuit-1.jpg"
+                    Thickness = 2,
+                    Price = 290,
+                    ImagePath = "/images/wetsuits/wetsuit-2.jpg"
                 },
                 new Wetsuit
                 {
                     WetsuitId = 3,
-                    Name = "",
-                    Gender = "",
+                    Name = "Foil",
+                    Gender = "Male",
                     WetsuitSize = 0,
-                    Thickness = 2.75,
-                    Price = 565,
-                    ImagePath = "/images/wetsuits/wetsuit-1.jpg"
+                    Thickness = 3,
+                    Price = 265,
+                    ImagePath = "/images/wetsuits/wetsuit-3.jpg"
                 },
                 new Wetsuit
                 {
                     WetsuitId = 4,
-                    Name = "",
-                    Gender = "",
+                    Name = "Revolution Natural",
+                    Gender = "Male",
                     WetsuitSize = 0,
-                    Thickness = 2.75,
-                    Price = 565,
-                    ImagePath = "/images/wetsuits/wetsuit-1.jpg"
+                    Thickness = 3,
+                    Price = 270,
+                    ImagePath = "/images/wetsuits/wetsuit-4.jpg"
                 },
                 new Wetsuit
                 {
                     WetsuitId = 5,
-                    Name = "",
-                    Gender = "",
+                    Name = "Foil Natural",
+                    Gender = "Male",
                     WetsuitSize = 0,
-                    Thickness = 2.75,
-                    Price = 565,
-                    ImagePath = "/images/wetsuits/wetsuit-1.jpg"
-                });
+                    Thickness = 5,
+                    Price = 285,
+                    ImagePath = "/images/wetsuits/wetsuit-5.jpg"
+                },
+                  new Wetsuit
+                  {
+                      WetsuitId = 6,
+                      Name = "Furnace",
+                      Gender = "Male",
+                      WetsuitSize = 0,
+                      Thickness = 5,
+                      Price = 285,
+                      ImagePath = "/images/wetsuits/wetsuit-6.jpg"
+                  }
+                );
         }
     }
 }

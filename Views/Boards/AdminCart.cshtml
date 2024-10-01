@@ -4,18 +4,38 @@
     ViewData["Title"] = "Admin Bookings";
 }
 
-<h2>Din Kurv</h2>
+<h2>Admin Kurv</h2>
 
-@if (Model != null && Model.Any())
+@if (Model != null && Model.Any(booking => booking.Board != null))
 {
     <ul>
-        @foreach (var booking in Model)
+        @foreach (var booking in Model.Where(booking => booking.Board != null))
         {
             <li style="list-style-type:none;">
                 <img src="@booking.Board.ImagePath" alt="@booking.Board.Name" style="width:100px;height:auto;" />
                 <strong>@booking.Board.Name</strong> <br />
                 Type: @booking.Board.Type <br />
                 Pris: €@booking.Board.Price <br />
+                Booket fra: @booking.DateFrom.ToString("dd-MM-yyyy") <br />
+                Booket til: @booking.DateTo.ToString("dd-MM-yyyy") <br />
+                Booket af: @booking.Name <br />
+                Email: @booking.Email <br />
+            </li>
+        }
+    </ul>
+}
+@if (Model != null && Model.Any(booking => booking.Wetsuit != null))
+{
+    <ul>
+        @foreach (var booking in Model.Where(booking => booking.Wetsuit != null))
+        {
+            <li style="list-style-type:none;">
+                <img src="@booking.Wetsuit.ImagePath" alt="@booking.Wetsuit.Name" style="width:100px;height:auto;" />
+                <strong>@booking.Wetsuit.Name</strong> <br />
+                Gender: @booking.Wetsuit.Gender <br />
+                Size: @booking.Wetsuit.WetsuitSize <br />
+                Thickness: @booking.Wetsuit.Thickness <br />
+                Pris: €@booking.Wetsuit.Price <br />
                 Booket fra: @booking.DateFrom.ToString("dd-MM-yyyy") <br />
                 Booket til: @booking.DateTo.ToString("dd-MM-yyyy") <br />
                 Booket af: @booking.Name <br />
